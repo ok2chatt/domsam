@@ -6,7 +6,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
 	<style>
 		   body { 
-		     background: url(./biker.jpg) no-repeat top; 
+		     <!-- background: url(./biker.jpg) no-repeat top; -->
 		     -webkit-background-size: cover;
 		     -moz-background-size: cover;
 		     -o-background-size: cover;
@@ -39,95 +39,377 @@
 		       text-align: left;
 		   }
 		
-		.tuna {
-  animation: walk-cycle 1s steps(12) infinite;
-  background: url(http://stash.rachelnabors.com/img/codepen/tuna_sprite.png) 0 0 no-repeat; 
-  height: 200px;
-  width: 400px;
-  position: absolute;
-  bottom: 1px;
-  left: 50%;
-  margin-left: -200px;
-  transform: translateZ(0); /* offers a bit of a performance boost by pushing some of this processing to the GPU in Safari*/
-}
+		*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
 
-@keyframes walk-cycle {  
-  0% {background-position: 0 0; } 
-  100% {background-position: 0 -2391px; } 
-}
+body
+  background: #D0EAFC
+  
 
-.foreground, .midground, .background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0; left: 0;
-  translate3d(0,0,0); 
-}
+h1
+  font-family: 'droid sans'
+  position: absolute
+  left: 50%
+  top: 100px
+  transform: translate(-50%, 0)
+  
 
-.foreground {
-  animation: parallax_fg linear 10s infinite both;
-  background:  url(http://stash.rachelnabors.com/24ways2012/foreground_grass.png) 0 100% repeat-x;
-  z-index: 3;
-}
+.container
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  //background: blue
+  width: 220px
+  height: 125px
+  color: black
+  font-family: 'droid Sans', sans-serif
 
-@keyframes parallax_fg {  
-  0% { background-position: -3584px 100%;} 
-  100% {background-position: 0 100%; } 
-}
+.bike-body
+  width: 250px
+  height: 108px
+  //background: blue
+  position: relative
+  left: -20px
+  top: 3px
+  
+  .seat
+    width: 30px
+    height: 30px
+    background:  radial-gradient(circle at right top , rgba(248,80,50,0) 0%, rgba(241,111,92,0) 50%, rgba(246,41,12,0) 51%, rgba(242,45,19,0) 64%, rgba(67, 75, 89,1) 65%, rgba(67, 75, 89,1) 71%, rgba(67, 75, 89,1) 100%)
+    background-position: center
+    background-repeat: no-repeat
+    transform: rotateZ(-40deg)
+    position: absolute
+    top: 64px
+    left: 65px
+    
+    &:before
+      content: ''
+      display: block
+      width: 9px
+      height: 35px
+      position: relative
+      top: -2px
+      left: -4px
+      background: #434B59
+      border-radius: 5px
+    
+    &:after
+      content: ''
+      display: block
+      width: 35px
+      height: 9px
+      position: relative
+      top: -10px
+      left: -4px
+      background: #434B59
+      border-radius: 5px
+    
+  
+  .cover
+    width: 75px
+    height: 30px
+    background: #F4492C
+    position: absolute
+    top: 55px
+    left: 105px
+    border-top-color: transparent
+    border-left-color: transparent
+    border-radius: (110px 20px 15px 5px)/(50px 20px 20px 5px)
+    z-index: 11
+    box-shadow: inset -5px -2px 0px 2px rgba(0, 0, 0, 0.2)
+    
+  .lamp
+    width: 25px
+    height: 25px
+    background: linear-gradient(90deg, rgba(67, 75, 89,1) 65%, #FFDD4D 35%)
+    border-radius: (70px 60px 60px 50px)/(40px 60px 60px 15px)
+    position: relative
+    top: 60px
+    right: -185px
+    //transform: rotateZ(-5deg)
+      
+  .motor
+    width: 75px
+    height: 45px
+    //background: blue
+    position: absolute
+    left: 90px
+    top: 90px
+    
+    .part-1
+      width: 35px
+      height: 45px
+      //background: yellow
+      display: inline-block
+      
+      .part-1-top
+        width: 40px
+        height: 20px
+        background: linear-gradient(135deg, transparent 10px, #F5492C 0)
+        border-radius: 0px 5px 5px 5px
+        box-shadow: inset -2px -2px 0px 1px rgba(0, 0, 0, 0.2)
+        
+      
+      .part-1-bottom
+        width: 35px
+        height: 17px
+        background: #829399
+        position: relative
+        top: 5px
+        border-radius: 5px
+        
+        &:after
+          content: ''
+          display: block
+          width: 17px
+          height: 17px
+          border-radius: 50%
+          background: #829399
+          border: 3px solid #A2B1B7
+          position: relative
+          left: 13px
+          top: -3px
+      
+    .part-2
+      width: 30px
+      height: 45px
+      //background: yellow
+      display: inline-block
+      animation: shake 0.1s infinite
+      
+      .part-2-base
+        width: 25px
+        height: 33px
+        background: #A4B4BA
+        margin: auto
+        position: relative
+        top: 5px
+        left: 5px
+        border-radius: 15px
+        
+        .line
+          position: relative
+          margin: auto
+          width: 105%
+          left: -2.5%
+          top: -2px
+          height: 4px
+          background: #829399
+          margin-bottom: 6px
+          border-radius: 3px
+          
+        
+        .line:nth-child(1)
+          height: 6px
+          background: #434B59
+          top: 0
+          
+          &:before
+            content: ''
+            display: block
+            width: 20px
+            height: 4px
+            background: #434B59
+            margin: auto
+            position: relative
+            top: -3px
+            border-radius: 5px
+        
+        .line:nth-child(4)
+          width: 60%
 
-.midground {
-  animation: parallax_mg linear 20s infinite;
-  background:  url(http://stash.rachelnabors.com/24ways2012/midground_grass.png) 0 100% repeat-x;
-  z-index: 2;
-}
+  .front
+    position: absolute
+    width: 10px
+    height: 100px
+    background: #AABABF
+    transform: rotateZ(-30deg)
+    right: 53px
+    top: 40px
+    border-radius: 7px
+    z-index: 10
+    
+    &:before
+      content: ''
+      display: block
+      width: 25px
+      height: 6px
+      background: rgba(67, 75, 89,1)
+      border-radius: 5px
+      transform: rotateZ(30deg)
+      position: relative
+      left: -18px
+      top: -7px
+    
+    &:after
+      content: ''
+      display: block
+      width: 12px
+      height: 12px
+      border-radius: 50%
+      background: rgba(67, 75, 89,1)
+      position: absolute
+      top: -5px
+    
+  .back
+    position: absolute
+    width: 120px
+    box-sizing: content-box
+    background: transparent
+    border: 10px solid #AABABF
+    border-top-color: transparent
+    border-right-color: transparent
+    border-left-color: transparent
+    bottom: -40px
+    left: 30px
+    z-index: 10
+    
+    &:before
+      content: ''
+      display: block
+      width: 75px
+      height: 13px
+      background: #AABABF
+      position: absolute
+      left: 123px
+      top: 2px
+      transform-origin: 0px
+      transform: rotateZ(-70deg)
+      border-radius: 0px 0px 10px 0px
+    
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      width: 80px
+      height: 9px
+      background: transparent
+      border: 10px solid #AABABF
+      border-left-color: transparent
+      border-bottom-color: transparent
+      border-radius: 0px 10px 0px 0px
+      transform: skewX(20deg)
+      top: -18px
+      left: -50px
+  
+.tire
+  position: absolute
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  background: #ccc
+  border: 15px solid white
+  box-shadow: 0px 0px 0px 10px #454D5B
+  
+  &:before
+    content: ''
+    display: block
+    width: 50px
+    height: 50px
+    border: 10px solid transparent
+    border-top-color: #F5492C
+    border-radius: 50%
+    background: transparent
+    position: relative
+    top: -30px
+    left: -25px
+  
+  &:after
+    content: ''
+    display: block
+    width: 50px
+    height: 50px
+    border: 4px solid transparent
+    border-top-color: rgba(0, 0, 0, 0.2)
+    border-radius: 50%
+    background: transparent
+    position: relative
+    top: -93px
+    left: -19px
+    z-index: 9
 
-@keyframes parallax_mg {  
-  0% { background-position: -3000px 100%;} 
-  100% {background-position: 0 100%; } 
-}
+.tire:nth-child(2)
+  right: 0
+  
+  &:before, &:after
+    transform: rotateZ(-20deg)
+  
 
-.background {
-  background-image:
-    url(http://stash.rachelnabors.com/24ways2012/background_mountain5.png),
-    url(http://stash.rachelnabors.com/24ways2012/background_mountain4.png),
-    url(http://stash.rachelnabors.com/24ways2012/background_mountain3.png),
-    url(http://stash.rachelnabors.com/24ways2012/background_mountain2.png),
-    url(http://stash.rachelnabors.com/24ways2012/background_mountain1.png);
-  background-repeat: repeat-x;
-  background-position: 0 100%;
-  z-index: 1;
-  animation: parallax_bg linear 40s infinite;
-}
+.smoke
+  width: 15px
+  height: 15px
+  background: black
+  border-radius: 50%
+  position: absolute
+  top: 120px
+  left: -50px
+  animation: fly 3s infinite
+  
+  &:before
+    content: ''
+    display: block
+    width: 12px
+    height: 12px
+    border-radius: 50%
+    background: black
+    position: relative
+    right: -12px
+    top: 5px
+    
 
-@keyframes parallax_bg {
-  100% { background-position-x: 2400px, 2000px, 1800px, 1600px, 1200px;}
-}
+@keyframes shake
+  0%, 100%
+    transform: rotateZ(0deg)
+  
+  25%
+    transform: rotateZ(-5deg)
+  
+  50%
+    transform: rotateZ(5deg)
 
-body {
-    background: linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%),
-    #d2d2d2 url(http://stash.rachelnabors.com/24ways2012/background_clouds.png);
-}
+@keyframes fly
+  0%
+    opacity: 1
+  
+  35%, 100%
+    opacity: 0
+    top: 100px
+    left: -70px
+
 	</style>
 </head>
 <body>
 	
-	<div class="foreground"></div>
-
-<div class="midground">
-  <div class="tuna"></div>
-</div>
-
-<div class="background">
-</div>
 	<div class="content-top">Kevin's custom right frame URL page</div>
 	<div class="content">
-	<p>Biker for life!!!</p>
-
-	
-	
-	
+	<p>Biker for life!!!</p>	
 	</div>
 	
+	.container
+      .bike-body
+        .seat
+        .cover
+        .lamp
+        .motor
+          .part-1
+            .part-1-top
+            .part-1-bottom
+          .part-2
+            .part-2-base
+              .line
+              .line
+              .line
+              .line
+        .front
+        .back
+        
+      .tire
+      .tire
+      .smoke
 	
 	
 </body>
